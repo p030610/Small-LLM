@@ -4,6 +4,9 @@ from datasets import load_dataset
 from trl import SFTTrainer
 from transformers import TrainingArguments
 
+import os
+os.environ["UNSLOTH_RETURN_HIDDEN_STATES"] = "1"
+
 # 1. 모델 및 토크나이저 설정 (Llama-3-8B 4bit 양자화 버전)
 max_seq_length = 1024  # RTX 3060 12GB에 최적화된 길이
 model, tokenizer = FastLanguageModel.from_pretrained(
